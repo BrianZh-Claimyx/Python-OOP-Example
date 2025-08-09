@@ -6,6 +6,7 @@ from Tests.tests import run_tests
 
 run_tests()
 
+# test change
 # attach_logging_decorator(Account, Account.withdraw)
 # attach_logging_decorator(Account, Account.deposit)
 # attach_logging_decorator(CheckingAccount, CheckingAccount.withdraw)
