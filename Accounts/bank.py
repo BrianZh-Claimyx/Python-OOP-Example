@@ -13,7 +13,13 @@ def access_log(method):
 
 class Bank:
     global_interest = 0.04
-    def __init__(self, balance, accounts = [], bank_interest = 0.06):
+    def __init__(self, balance:float, accounts:list = [], bank_interest:float = 0.06):
+        assert isinstance(balance, (int,float))
+        assert isinstance(bank_interest, (int,float))
+        assert isinstance(accounts, list)
+        for account in accounts:
+            assert isinstance(account, Account)
+
         self._accounts = accounts
         self._accesslog = []
         self._balance = balance # The bank's own balance
@@ -21,10 +27,12 @@ class Bank:
 
     @access_log
     def add_account(self, account : Account):
+        assert isinstance(account, Account)
         self._accounts.append(account)
 
     @access_log
     def remove_account(self, account: Account):
+        assert isinstance(account, Account)
         self._accounts.remove(account)
     
     @access_log
